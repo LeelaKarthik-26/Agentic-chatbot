@@ -22,17 +22,20 @@ class AINewsNode:
             dict: The updated with 'new_data' key containing the fetched news.
         """
 
+        if not state.get('messages'):
+            raise ValueError("No messages found in state. Expected frequency in the first message.")
+        
         frequency = state['messages'][0].content.lower()
         self.state['frequency'] = frequency
         time_range_map = {'daily': 'd', 'weekly': 'w', 'monthly': 'm', 'yearly': 'y'}
         days_map = {'daily': 1, 'weekly': 7, 'monthly': 30, 'yearly': 365}
 
         response = self.tavily.search(
-            query = 'Top Artificial Intelligence (AI) technology news Use and globally',
+            query = 'Top Artificial Intelligence (AI) technology news USA and globally',
             topic='news',
             time_range=time_range_map[frequency],
             include_answer = 'advanced',
-            max_results=20,
+            max_results=10,
             days = days_map[frequency],
         )
 
@@ -56,7 +59,7 @@ class AINewsNode:
         prompt_template = ChatPromptTemplate.from_messages([
             ("system", """Summarize AI news articles into markdown format. For each item include:
             - Date in yyyy-mm-dd format in EST timezone 
-            - Concise sentences summary from lastest news
+            - Concise sentences summary from latest news
             - Sort news by date wise (latest first)
             Source URL as link 
             Use format:
@@ -75,7 +78,7 @@ class AINewsNode:
 
         state['summary'] = response.content
         self.state['summary'] = state['summary']
-        return self.state
+        return state
 
     def save_result(self, state):
         frequency = self.state['frequency']
@@ -85,4 +88,4 @@ class AINewsNode:
             f.write(f"# {frequency.capitalize()} AI News Summary\n\n")
             f.write(summary)
         self.state['filename'] = filename
-        return self.state
+        return state

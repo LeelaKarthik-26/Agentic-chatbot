@@ -42,10 +42,10 @@ class DisplayResultstreamlit:
         elif usecase == "AI News":
            frequency = self.user_message
            with st.spinner("Fetching and summarizing news....⌛"):
-            result = graph.invoke({'frequency': frequency})
+            result = graph.invoke({'messages': [HumanMessage(content=frequency)]})
             try:
                 AI_NEWS_PATH = f"./AINews/{frequency.lower()}_summary.md"
-                with open(AI_NEWS_PATH, 'r') as file:
+                with open(AI_NEWS_PATH, 'r', encoding='utf-8') as file:
                     markdown_content = file.read()
 
                 # Display the markdown content
