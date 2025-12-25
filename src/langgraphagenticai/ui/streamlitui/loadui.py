@@ -43,7 +43,7 @@ class LoadStreamlitUI():
                 with st.sidebar:
                     time_frame = st.selectbox(
                         "🕰️ Select time frame:",
-                        ["Today", "Yesterday", "This Week", "This Month", "This Year"],
+                        ["daily", "weekly", "monthly", "yearly"],
                         index=0
                     )
                 
