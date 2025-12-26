@@ -1,7 +1,5 @@
 # 🤖 Agentic Chatbot - End-to-End Multi-Agent System
 
-<img src="assets/banner.png" alt="Agentic Chatbot Banner" width="700">
-
 ### 📝 Project Introduction
 **Agentic Chatbot** is a sophisticated AI-driven application designed to demonstrate the power of autonomous agentic workflows. By leveraging **LangGraph** and **LangChain**, it orchestrates complex interactions between Large Language Models and external search tools to provide real-time information and structured news summaries. This project showcases state-managed AI reasoning, making it a robust template for developing production-ready, multi-node AI agents.
 
