@@ -108,7 +108,7 @@ The project follows a modular node-based architecture:
 ## 👨‍💻 Author
 **Leela Karthik**
 - [GitHub](https://github.com/LeelaKarthik-26)
-- [LinkedIn](www.linkedin.com/in/devisetty-leela-karthik)
+- [LinkedIn](https://www.linkedin.com/in/devisetty-leela-karthik/)
 
 ---
 *If you like this project, feel free to ⭐ the repository!*
